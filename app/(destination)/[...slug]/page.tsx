@@ -3,8 +3,12 @@ import Link from "next/link";
 interface Props {
   params: { slug: Array<string> };
 }
-export const dynamicParams = false;
-export default function DestinatinPage({ params }: Props) {
+
+export const dynamic = "force-static";
+export const generateStaticParams = async () => []; //https://github.com/vercel/next.js/pull/66151
+
+//export const dynamicParams = false;
+export default function DestinationPage({ params }: Props) {
   const prismaSlug = params.slug.join("/");
   return (
     <>
