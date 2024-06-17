@@ -14,6 +14,7 @@ export default function DestinationPage({ params }: Props) {
     <>
       <h2>Root catch all segment</h2>
       <div>Slug: {prismaSlug}</div>
+      <ShowSlug slug={prismaSlug} />
       <ul>
         <li>
           <Link href="/germany">Germany (prefetch test)</Link>
@@ -24,4 +25,8 @@ export default function DestinationPage({ params }: Props) {
       </ul>
     </>
   );
+}
+
+function ShowSlug({ slug }: { slug: string }) {
+  return <div>Slug: {slug}</div>;
 }
