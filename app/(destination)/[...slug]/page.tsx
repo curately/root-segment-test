@@ -32,5 +32,5 @@ export default function DestinationPage({ params }: Props) {
 }
 
 function ShowSlug({ slug }: { slug: string }) {
-  return <div>Slug: {slug}</div>;
+  return <div>Show Slug: {slug}</div>;
 }
