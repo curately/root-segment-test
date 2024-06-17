@@ -13,6 +13,7 @@ export default function DestinationPage({ params }: Props) {
   return (
     <>
       <h2>Root catch all segment</h2>
+      <div>num slugs: {params.slug.length}</div>
       {params.slug.map((slug, index) => (
         <div key={index}>Slug: {slug}</div>
       ))}
