@@ -15,7 +15,7 @@ export default function DestinationPage({ params }: Props) {
       <h2>Root catch all segment</h2>
       <div>num slugs: {params.slug.length}</div>
       {params.slug.map((slug, index) => (
-        <div key={index}>Slug: {slug}</div>
+        <div key={index}>Slug Param: {slug}</div>
       ))}
       <div>Slug: {prismaSlug}</div>
       <ShowSlug slug={prismaSlug} />
