@@ -1,0 +1,608 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "mongodb"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+type BestOfBestOfLinks {
+  heading String
+  image   String
+  name    String
+  slug    String
+  type    String
+}
+
+type BestOfBreadcrumb {
+  name String
+  type String
+  url  String
+}
+
+type BestOfMetaData {
+  canonical       String
+  index           String
+  metaDescription String
+  metaTitle       String
+  schema          BestOfMetaDataSchema
+}
+
+type BestOfMetaDataSchema {
+  context         String                                @map("@context")
+  type            String                                @map("@type")
+  itemListElement BestOfMetaDataSchemaItemListElement[]
+}
+
+type BestOfMetaDataSchemaItemListElement {
+  type     String @map("@type")
+  item     String
+  name     String
+  position Int
+}
+
+type BestOfPropertyCards {
+  address1              String
+  amenitiesNormal       String[]
+  amenitiesNormalLabels String[]
+  city                  String
+  country               String
+  curatelyScore         Int
+  familyReviews         BestOfPropertyCardsFamilyReviews
+  /// Multiple data types found: Float: 50%, Int: 50% out of 1173 sampled entries
+  guestAvgRating        Float
+  guestReviewCount      Int
+  hcomId                String
+  images                BestOfPropertyCardsImages[]
+  imgLst                BestOfPropertyCardsImgLst[]
+  propertyName          String
+  slug                  String
+  /// Multiple data types found: Float: 26.7%, Int: 73.3% out of 1173 sampled entries
+  starRating            Float
+}
+
+type BestOfPropertyCardsFamilyReviews {
+  date        String
+  review_text String
+  score       String
+}
+
+type BestOfPropertyCardsImages {
+  group String
+  link  String
+  title String
+}
+
+type BestOfPropertyCardsImgLst {
+  group String?
+  link  String?
+  room  String?
+  title String?
+}
+
+type CollectionBreadcrumb {
+  name String
+  type String
+  url  String
+}
+
+type CollectionContent {
+  highlights   String[]
+  introduction String
+  thingsToDo   String
+  whenToVisit  String
+}
+
+type CollectionLocation {
+  coordinates Float[]
+  type        String
+}
+
+type CollectionMetaData {
+  canonical       String
+  index           String
+  metaDescription String
+  metaTitle       String
+  schema          CollectionMetaDataSchema
+}
+
+type CollectionMetaDataSchema {
+  context         String                                    @map("@context")
+  type            String                                    @map("@type")
+  itemListElement CollectionMetaDataSchemaItemListElement[]
+}
+
+type CollectionMetaDataSchemaItemListElement {
+  type     String @map("@type")
+  item     String
+  name     String
+  position Int
+}
+
+type CollectionPageContent {
+  body  String
+  faq   String
+  h1    String
+  intro String
+}
+
+type CollectionProgrammaticContent {
+  abbreviation   String
+  airportCount   Int
+  airports       CollectionProgrammaticContentAirports[]
+  capital        String
+  countryCode    String
+  currency       String
+  emoji          String
+  /// Multiple data types found: Float: 1.8%, Int: 98.2% out of 1000 sampled entries
+  gmtOffsetHours Float
+  langauageLst   String[]
+  phoneCode      String
+  population     Int
+  regionId       String
+  weather        CollectionProgrammaticContentWeather
+  zoneName       String
+}
+
+type CollectionProgrammaticContentAirports {
+  city         String
+  city_code    String
+  country_code String
+  distance     String
+  iata_code    String
+  icao_code    String
+  lat          Float
+  lng          Float
+  name         String
+  popularity   Int
+  slug         String
+  timezone     String
+}
+
+type CollectionProgrammaticContentWeather {
+  /// Multiple data types found: Array(Float): 89.9%, Array(Int): 10.1% out of 1000 sampled entries
+  highTemp        Float[]
+  /// Multiple data types found: Array(Float): 90.5%, Array(Int): 9.5% out of 1000 sampled entries
+  lowTemp         Float[]
+  /// Multiple data types found: Array(Float): 88.2%, Array(Int): 11.8% out of 1000 sampled entries
+  meanTemp        Float[]
+  rainyDays       Int[]
+  totalRainFallCm Int[]
+}
+
+type CollectionPropertyCards {
+  address          String
+  cardDescription  String
+  curatelyScore    Int
+  guestAvgRating   String
+  guestReviewCount Int
+  hcomId           String
+  imgLst           CollectionPropertyCardsImgLst[]
+  name             String
+  slug             String
+  starRating       Int
+}
+
+type CollectionPropertyCardsImgLst {
+  group String
+  link  String
+  title String
+}
+
+type CollectionSimilarCollections {
+  city           CollectionSimilarCollectionsCity[]
+  country        CollectionSimilarCollectionsCountry[]
+  neighborhood   CollectionSimilarCollectionsNeighborhood[]
+  province_state CollectionSimilarCollectionsProvinceState[]
+}
+
+type CollectionSimilarCollectionsCity {
+  name     String
+  regionId String
+  slug     String
+  type     String
+}
+
+type CollectionSimilarCollectionsCountry {
+  name     String
+  regionId String
+  slug     String
+  type     String
+}
+
+type CollectionSimilarCollectionsNeighborhood {
+  name     String
+  regionId String
+  slug     String
+  type     String
+}
+
+type CollectionSimilarCollectionsProvinceState {
+  name     String
+  regionId String
+  slug     String
+  type     String
+}
+
+type ListingAmenities {
+  Accessibility     String[]
+  Activities_nearby String[] @map("Activities nearby")
+  Business_services String[] @map("Business services")
+  Conveniences      String[]
+  Family_friendly   String[] @map("Family friendly")
+  Food_and_drink    String[] @map("Food and drink")
+  Guest_services    String[] @map("Guest services")
+  Internet          String[]
+  Langs_spoken      String[] @map("Langs spoken")
+  More              String[]
+  Outdoor           String[]
+  Parking           String[]
+  Spa               String[]
+  Things_to_do      String[] @map("Things to do")
+}
+
+type ListingBreadcrumb {
+  name String
+  type String
+  url  String
+}
+
+type ListingFamilyReviews {
+  checkinDate   String?
+  checkoutDate  String?
+  creationDate  String?
+  date          String?
+  languageCode  String?
+  reviewBrand   String?
+  reviewText    String?
+  review_text   String?
+  reviewerName  String?
+  reviewerScore String?
+  score         String?
+}
+
+type ListingGeoLocation {
+  coordinates Float[]
+  type        String
+}
+
+type ListingImages {
+  group String
+  link  String
+  title String
+}
+
+type ListingLatestReviews {
+  /// Multiple data types found: Float: 66.7%, Int: 33.3% out of 1000 sampled entries
+  avgRating      Float
+  distribution   ListingLatestReviewsDistribution
+  filters        ListingLatestReviewsFilters[]
+  reviews        ListingLatestReviewsReviews[]
+  totalNoReviews Int
+}
+
+type ListingLatestReviewsDistribution {
+  /// Multiple data types found: Float: 62.8%, Int: 37.2% out of 895 sampled entries
+  five  Float?
+  four  Float?
+  one   Float?
+  three Float?
+  two   Float?
+}
+
+type ListingLatestReviewsFilters {
+  name      String
+  reviewIds String[]
+}
+
+type ListingLatestReviewsReviews {
+  checkinDate          String
+  checkoutDate         String
+  creationDate         String
+  creationDateSortable DateTime @db.Date
+  languageCode         String
+  reviewBrand          String
+  reviewText           String
+  reviewerName         String
+  reviewerScore        Int
+}
+
+type ListingMetaData {
+  canonical       String
+  index           String
+  metaDescription String
+  metaTitle       String
+  schema          ListingMetaDataSchema
+}
+
+type ListingMetaDataSchema {
+  context         String                                 @map("@context")
+  type            String                                 @map("@type")
+  itemListElement ListingMetaDataSchemaItemListElement[]
+}
+
+type ListingMetaDataSchemaItemListElement {
+  type     String @map("@type")
+  item     String
+  name     String
+  position Int
+}
+
+type ListingPageContent {
+  body  String
+  faq   String
+  h1    String
+  intro String
+}
+
+type ListingProgrammaticContent {
+  airport_count Int
+  airports      ListingProgrammaticContentAirports[]
+}
+
+type ListingProgrammaticContentAirports {
+  city         String
+  city_code    String?
+  country_code String
+  distance     String
+  iata_code    String?
+  icao_code    String
+  lat          Float
+  lng          Float
+  name         String
+  popularity   Int
+  slug         String
+  timezone     String?
+}
+
+type ListingReviews {
+  date        String
+  review_text String
+  score       String
+}
+
+type ListingSimilarHotels {
+  address1      String
+  /// Multiple data types found: Float: 59.5%, Int: 40.5% out of 9860 sampled entries
+  avgRating     Float
+  city          String
+  curatelyScore Int
+  hcomId        String
+  heroImage     String
+  propertyName  String
+  reviewCount   Int
+  slug          String
+  /// Multiple data types found: Float: 30.9%, Int: 69.1% out of 9860 sampled entries
+  starRating    Float
+}
+
+type NavAmenities {
+  name String
+  url  String
+}
+
+type NavDestinations {
+  beach            NavDestinationsBeach[]
+  city_break       NavDestinationsCityBreak[]       @map("city break")
+  domestic         NavDestinationsDomestic[]
+  european_islands NavDestinationsEuropeanIslands[] @map("european islands")
+  long_haul        NavDestinationsLongHaul[]        @map("long haul")
+  ski              NavDestinationsSki[]
+  winter_sun       NavDestinationsWinterSun[]       @map("winter sun")
+}
+
+type NavDestinationsBeach {
+  name String
+  url  String
+}
+
+type NavDestinationsCityBreak {
+  name String
+  url  String
+}
+
+type NavDestinationsDomestic {
+  name String
+  url  String
+}
+
+type NavDestinationsEuropeanIslands {
+  name String
+  url  String
+}
+
+type NavDestinationsLongHaul {
+  name String
+  url  String
+}
+
+type NavDestinationsSki {
+  name String
+  url  String
+}
+
+type NavDestinationsWinterSun {
+  name String
+  url  String
+}
+
+type ReviewFilterHighlighter {
+  filter     String
+  occurences ReviewFilterHighlighterOccurences[]
+}
+
+type ReviewFilterHighlighterOccurences {
+  endHighlight   Int
+  keyword        String
+  sentence       String
+  startHighlight Int
+}
+
+model BestOf {
+  id            String                @id @default(auto()) @map("_id") @db.ObjectId
+  amenity       String
+  bannerImage   String
+  bestOfLinks   BestOfBestOfLinks[]
+  breadcrumb    BestOfBreadcrumb[]
+  heading       String
+  introText     String
+  metaData      BestOfMetaData
+  propertyCards BestOfPropertyCards[]
+  slug          String
+  type          String
+
+  @@index([slug], map: "slug_1")
+}
+
+model Collection {
+  id                      String                        @id @default(auto()) @map("_id") @db.ObjectId
+  breadcrumb              CollectionBreadcrumb[]
+  cityName                String
+  content                 CollectionContent
+  contentLastModifiedDate String
+  continentName           String
+  countryName             String
+  extendedName            String
+  isFilterCollection      Boolean
+  latitude                Float
+  listingIds              String[]
+  location                CollectionLocation
+  longitude               Float
+  metaData                CollectionMetaData
+  name                    String
+  neighbourhoodName       String
+  pageContent             CollectionPageContent
+  parentRegionId          String
+  parentRegionName        String
+  parentRegionType        String
+  programmaticContent     CollectionProgrammaticContent
+  propertyCards           CollectionPropertyCards[]
+  propertyCount           Int
+  provinceName            String
+  regionId                String
+  similarCollections      CollectionSimilarCollections
+  slug                    String
+  type                    String
+
+  @@index([countryName, type], map: "countryName_1_type_1")
+  @@index([extendedName, name, slug], map: "extendedName_1_name_1_slug_1")
+  @@index([location], map: "location_2dsphere")
+  @@index([regionId], map: "regionId_1")
+  @@index([slug], map: "slug_1")
+  @@index([type], map: "type_1")
+  @@index([slug, content.introduction], map: "slug_1_content.introduction_1")
+}
+
+model Listing {
+  id                     String                     @id @default(auto()) @map("_id") @db.ObjectId
+  address1               String
+  address2               String
+  amenities              ListingAmenities
+  amenitiesNormal        String[]
+  areaDescription        String
+  avgRating              Float
+  breadcrumb             ListingBreadcrumb[]
+  chain                  Boolean
+  chainBrand             String
+  chainId                Int
+  chainName              String
+  checkIn                String
+  checkInInstructions    String[]
+  checkInPolicy          String[]
+  checkOut               String
+  checkOutPolicy         String[]
+  childrenExtraBedPolicy String[]
+  city                   String
+  collectionRoute        String
+  collections            String[]
+  connectingRooms        Boolean
+  connectingRoomsPolicy  String
+  country                String
+  curatelyScore          Int
+  expediaId              String
+  familyReviews          ListingFamilyReviews[]
+  freeInfantBeds         Boolean
+  freeInfantBedsPolicy   String
+  geoLocation            ListingGeoLocation
+  guestAvgRating         Float
+  guestAvgRatingExp      Float
+  guestReviewCount       Int
+  guestReviewCountExp    Int
+  hcomId                 String
+  heroImage              String
+  images                 ListingImages[]
+  imagesUpdatedAt        String
+  inventorySource        String
+  kidsStayFree           Boolean
+  kidsStayFreePolicy     String
+  knowBeforeYouGo        String[]
+  lastUpdated            String
+  latestReviews          ListingLatestReviews
+  listingDescription     String
+  metaData               ListingMetaData
+  minimumAge             Int
+  optionalExtras         String[]
+  pageContent            ListingPageContent
+  petPolicy              String[]
+  popularAmenities       String[]
+  postalCode             String
+  programmaticContent    ListingProgrammaticContent
+  propertyName           String
+  propertyType           String
+  province               String
+  referencePrice         Float
+  reviewCount            Int
+  reviews                ListingReviews[]
+  similarHotels          ListingSimilarHotels[]
+  slug                   String
+  specialInstructions    String[]
+  starRating             Float
+  thumbnail              String
+
+  @@index([amenitiesNormal, curatelyScore(sort: Desc)], map: "amenitiesNormal_1_curatelyScore_-1")
+  @@index([collectionRoute, amenitiesNormal], map: "collectionRoute_1_amenitiesNormal_1")
+  @@index([collections, curatelyScore(sort: Desc)], map: "collections_1_curatelyScore_-1")
+  @@index([geoLocation], map: "geoLocation_2dsphere")
+  @@index([hcomId], map: "hcomId_1")
+  @@index([propertyName], map: "propertyName_1")
+  @@index([slug], map: "slug_1")
+  @@index([amenitiesNormal, curatelyScore, starRating], map: "amenitiesNormal_1_curatelyScore_1_starRating_1")
+  @@index([starRating, curatelyScore], map: "starRating_1_curatelyScore_1")
+  @@index([lastUpdated], map: "lastUpdated_1")
+  @@index([slug, hcomId], map: "slug_1_hcomId_1")
+  @@index([collections], map: "collections_1")
+  @@index([geoLocation, country, popularAmenities], map: "geoLocation_2dsphere_country_1_popularAmenities_1")
+  @@index([country, amenitiesNormal], map: "country_1_amenitiesNormal_1")
+}
+
+model Nav {
+  id           String          @id @default(auto()) @map("_id") @db.ObjectId
+  amenities    NavAmenities[]
+  destinations NavDestinations
+}
+
+model Review {
+  id                   String                    @id @default(auto()) @map("_id") @db.ObjectId
+  checkinDate          String
+  checkoutDate         String
+  creationDate         String
+  creationDateSortable DateTime                  @db.Date
+  filterHighlighter    ReviewFilterHighlighter[]
+  hcomId               String
+  languageCode         String
+  reviewBrand          String
+  reviewId             String
+  reviewText           String
+  reviewerName         String
+  reviewerScore        Int
+
+  @@index([hcomId, reviewerScore, creationDate(sort: Desc)], map: "hcomId_1_reviewerScore_1_creationDate_-1")
+  @@index([hcomId, creationDate(sort: Desc)], map: "hcomId_1_creationDate_-1")
+  @@index([creationDate(sort: Desc)], map: "creationDate_-1")
+  @@index([hcomId, reviewerName], map: "hcomId_1_reviewerName_1")
+  @@index([hcomId], map: "hcomId_1")
+  @@index([hcomId, reviewerScore], map: "hcomId_1_reviewerScore_1")
+  @@index([reviewId], map: "reviewId_1")
+}
