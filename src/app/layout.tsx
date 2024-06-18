@@ -1,4 +1,5 @@
 import { StrictMode, Suspense } from "react";
+import "./globals.css";
 type RouteLayoutProps = {
   children: React.ReactNode;
 };
