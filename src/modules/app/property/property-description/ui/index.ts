@@ -1,0 +1,8 @@
+export { Amenities } from './amenities/amenities'
+export { AreaDescription } from './area-description'
+export { NearbyAirports } from './nearby-airports'
+export { PropertyDescription } from './property-description'
+export { PropertyName } from './property-name'
+export { PropertyStarRating } from './property-star-rating'
+export { StaticMap } from './static-map'
+export { ReviewsLink } from './reviews-link'

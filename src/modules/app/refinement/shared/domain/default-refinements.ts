@@ -1,0 +1,16 @@
+export const DEFAULT_REFINEMENTS = {
+  location: '',
+  checkin: '',
+  checkout: '',
+  filters: '',
+  offset: '',
+  limit: '',
+  returnType: '',
+  lng: '',
+  lat: '',
+  type: '',
+  tc: '',
+  rooms: '2',
+  cache: '',
+  modalOpen: '',
+} as const
