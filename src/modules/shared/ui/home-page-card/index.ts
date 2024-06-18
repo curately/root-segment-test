@@ -1,6 +1,0 @@
-export { HotelCard } from './hotel-card'
-export { HotelCardCarousel } from './hotel-card-carousel'
-export { HotelCardBody } from './hotel-card-body'
-export { HotelCardTitle } from './hotel-card-title'
-export { HotelCardContent } from './hotel-card-content'
-export { HotelCardLocation } from './hotel-card-location'

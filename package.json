@@ -7,9 +7,11 @@
     "monterey": "next build && next start"
   },
   "dependencies": {
-    "next": "canary",
-    "react": "19.0.0-rc-6f23540c7d-20240528",
-    "react-dom": "19.0.0-rc-6f23540c7d-20240528"
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "next": "^14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "20.12.12",
