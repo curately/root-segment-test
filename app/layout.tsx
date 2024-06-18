@@ -1,5 +1,8 @@
 import { StrictMode, Suspense } from "react";
-export default function RootLayout({ children }) {
+type RouteLayoutProps = {
+  children: React.ReactNode;
+};
+export default function RootLayout({ children }: RouteLayoutProps) {
   return (
     <html>
       <head />
